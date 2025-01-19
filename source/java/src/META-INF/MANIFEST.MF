@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Export-Package: org.lucee.extension.markdown.functions
+Bundle-ManifestVersion: 2
+Require-Bundle: org.lucee.commonmark;bundle-version=0.22.0
