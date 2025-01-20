@@ -16,15 +16,15 @@
 		<name>MarkdownToHTML</name>
 		<member-name>MarkdownToHTML</member-name>
 		<class bundle-name="{bundle-name}" bundle-version="{bundle-version}">org.lucee.extension.markdown.functions.MarkdownToHTML</class>
-	<keywords>string</keywords>
-		<description>Transforms Markdown formatted String into HTML.</description>
+		<keywords>string</keywords>
+		<description>Transforms a Markdown formatted String into HTML, using Commonmark.</description>
 		<introduced>6.0.0.150</introduced>
 		<argument>
 			<name>string</name>
 			<alias>markdown</alias>
 			<type>string</type>
 			<required>Yes</required>
-			<description>A Markdown formatted string or a path to a file containf a markdown formatted string to convert to HTML</description>
+			<description>A Markdown formatted string or a path to a file, containing a Markdown formatted string to be converted to HTML</description>
 		</argument>
 		<argument>
 			<name>safeMode</name>
@@ -32,7 +32,7 @@
 			<alias>safe</alias>
 			<default>false</default>
 			<required>No</required>
-			<description>If set to true it does escape unsafe HTML tags</description>
+			<description>If set to true, escape raw HTML tags</description>
 		</argument>
 		<argument>
 			<name>encoding</name>
@@ -44,6 +44,5 @@
 		<return>
 			<type>string</type>
 		</return>
-	</function>
-	
+	</function>	
 </func-lib>
