@@ -5,24 +5,23 @@ import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
 
 import lucee.runtime.PageContext;
-import org.lucee.extension.markdown.functions.FunctionSupport;
 import lucee.runtime.exp.PageException;
 
 public class MarkdownToHTML extends FunctionSupport {
 
 	private static final long serialVersionUID = 3775127934350736736L;
 
+	@Override
 	public Object invoke(PageContext pc, Object[] args) throws PageException {
 		if (args.length < 1 || args.length > 3) {
-			throw exp.createExpressionException("MarkdownToHTML requires between 1 and 3 arguments [string, safeMode, encoding], but ["
-				+ args.length + " ] arguments provided");
+			throw exp.createExpressionException("MarkdownToHTML requires between 1 and 3 arguments [string, safeMode, encoding], but [" + args.length + " ] arguments provided");
 		}
-		if (!cast.isSimpleValue(args[0])) {
+		if (!eng.getDecisionUtil().isSimpleValue(args[0])) {
 			throw exp.createExpressionException("MarkdownToHTML: argument [string] cannot be a complex object");
 		}
 		if (args.length == 1) return call(pc, cast.toString(args[0]));
-		else if (args.length == 2) return call(pc, cast.toString(args[0]), cast.toBoolean(args[1]) );
-		return call(pc, cast.toString(args[0]), cast.toBoolean(args[1]), cast.toString(args[2]) );
+		else if (args.length == 2) return call(pc, cast.toString(args[0]), cast.toBoolean(args[1]));
+		return call(pc, cast.toString(args[0]), cast.toBoolean(args[1]), cast.toString(args[2]));
 	}
 
 	public static String call(PageContext pc, String markdown) {
@@ -34,7 +33,7 @@ public class MarkdownToHTML extends FunctionSupport {
 	}
 
 	public static String call(PageContext pc, String markdown, boolean safeMode, String encoding) {
-		
+
 		Parser parser = Parser.builder().build();
 		// Parse the markdown to a Node
 		Node document = parser.parse(markdown); // TODO support encoding?
