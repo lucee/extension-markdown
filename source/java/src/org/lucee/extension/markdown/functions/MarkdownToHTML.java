@@ -13,7 +13,7 @@ public class MarkdownToHTML extends FunctionSupport {
 	private static final long serialVersionUID = 3775127934350736736L;
 
 	public Object invoke(PageContext pc, Object[] args) throws PageException {
-		if (args.length < 1 || args.length > 2) {
+		if (args.length < 1 || args.length > 3) {
 			throw exp.createExpressionException("MarkdownToHTML requires between 1 and 3 arguments [string, safeMode, encoding], but [" 
 				+ args.length + " ] arguments provided");
 		}

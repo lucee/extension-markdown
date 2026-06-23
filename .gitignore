@@ -1,4 +1,5 @@
-/dist
+/target
+/maven-deploy.sh
 **/Test.java
 **/.DS_Store
 **/.svn/
@@ -10,3 +11,6 @@ target/*
 *.lock
 *.DS_Store
 temp
+/test-output
+/.claude
+.vscode/settings.json
