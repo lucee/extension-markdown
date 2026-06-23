@@ -22,7 +22,7 @@
 		<argument>
 			<name>string</name>
 			<alias>markdown</alias>
-			<type>string</type>
+			<type>any</type>
 			<required>Yes</required>
 			<description>A Markdown formatted string or a path to a file, containing a Markdown formatted string to be converted to HTML</description>
 		</argument>
