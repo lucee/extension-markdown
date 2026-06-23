@@ -13,7 +13,6 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <id>3AEDA748-F62B-42E3-8E8DC5AE0DDABE09</id>
-        <bundlename>org.lucee.markdown</bundlename>
         <mvnGroupId>org.lucee</mvnGroupId>
         <mvnGroupPath>org/lucee</mvnGroupPath>
         <mvnArtifactId>markdown</mvnArtifactId>
@@ -21,7 +20,6 @@
         <luceeCoreVersion>7.0.0.395</luceeCoreVersion>
         <releaseType>server</releaseType>
         <label>Markdown Extension</label>
-        <camelname>Markdown</camelname>
         <release.url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</release.url>
         <snapshot.url>https://oss.sonatype.org/content/repositories/snapshots/</snapshot.url>
     </properties>
@@ -130,7 +128,6 @@
                                     <property name="releaseType" value="${releaseType}"/>
                                     <property name="label" value="${label}"/>
                                     <property name="description" value="${project.description}"/>
-                                    <property name="camelname" value="${camelname}"/>
                                     <property name="maven.goal" value="${goal}"/>
                                     <property name="mvnGroupId" value="${mvnGroupId}"/>
                                     <property name="mvnGroupPath" value="${mvnGroupPath}"/>

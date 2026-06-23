@@ -140,13 +140,6 @@
         <version>3.3.0</version>
         <configuration>
           <archive>
-            <manifestEntries>
-              <Bundle-ManifestVersion>2</Bundle-ManifestVersion>
-              <Bundle-SymbolicName>org.lucee.markdown</Bundle-SymbolicName>
-              <Bundle-Version>${revision}</Bundle-Version>
-              <Export-Package>org.lucee.extension.markdown.functions</Export-Package>
-              <Require-Bundle>org.lucee.commonmark;bundle-version=0.22.0</Require-Bundle>
-            </manifestEntries>
             <manifest>
               <addClasspath>true</addClasspath>
             </manifest>

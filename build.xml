@@ -139,13 +139,13 @@ start-bundles: false
 
     <target name="dist" depends="createManifest" description="generate the distribution">
 
-        <!-- copy the fld with token replacement -->
-        <copy file="${fld}/function.fld" tofile="${dist}/extension/flds/markdownToHtml.fld">
-            <filterchain>
-                <replacestring from="{bundle-name}" to="${bundlename}"/>
-                <replacestring from="{bundle-version}" to="${bundleversion}"/>
-            </filterchain>
-        </copy>
+        <!-- copy the fld and substitute {maven} with Maven coordinates -->
+        <copy file="${fld}/function.fld" tofile="${dist}/extension/flds/markdownToHtml.fld"/>
+        <replaceregexp
+            file="${dist}/extension/flds/markdownToHtml.fld"
+            match="\{maven\}"
+            replace="${mvnGroupId}:${mvnArtifactId}:${bundleversion}"
+            flags="g"/>
 
         <!-- copy the logo -->
         <copy todir="${dist}/extension/META-INF">
