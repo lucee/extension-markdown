@@ -14,8 +14,11 @@ public class MarkdownToHTML extends FunctionSupport {
 
 	public Object invoke(PageContext pc, Object[] args) throws PageException {
 		if (args.length < 1 || args.length > 3) {
-			throw exp.createExpressionException("MarkdownToHTML requires between 1 and 3 arguments [string, safeMode, encoding], but [" 
+			throw exp.createExpressionException("MarkdownToHTML requires between 1 and 3 arguments [string, safeMode, encoding], but ["
 				+ args.length + " ] arguments provided");
+		}
+		if (!cast.isSimpleValue(args[0])) {
+			throw exp.createExpressionException("MarkdownToHTML: argument [string] cannot be a complex object");
 		}
 		if (args.length == 1) return call(pc, cast.toString(args[0]));
 		else if (args.length == 2) return call(pc, cast.toString(args[0]), cast.toBoolean(args[1]) );
