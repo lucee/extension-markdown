@@ -12,6 +12,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+        <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
+        <image>https://raw.githubusercontent.com/lucee/extension-markdown/main/source/images/logo.png</image>
+        <buildDate>${maven.build.timestamp}</buildDate>
         <id>3AEDA748-F62B-42E3-8E8DC5AE0DDABE09</id>
         <mvnGroupId>org.lucee</mvnGroupId>
         <mvnGroupPath>org/lucee</mvnGroupPath>
