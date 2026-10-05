@@ -38,7 +38,8 @@ public class MarkdownToHTML extends FunctionSupport {
 		// Parse the markdown to a Node
 		Node document = parser.parse(markdown); // TODO support encoding?
 		// Create a HTML renderer
-		HtmlRenderer renderer = HtmlRenderer.builder().escapeHtml(safeMode).build();
+		// safe mode escapes raw HTML in the markdown source and drops unsafe link/image urls (javascript: etc.)
+		HtmlRenderer renderer = HtmlRenderer.builder().escapeHtml(safeMode).sanitizeUrls(safeMode).build();
 		// Render the Node to HTML
 		return renderer.render(document);
 	}
