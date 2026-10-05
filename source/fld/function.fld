@@ -32,7 +32,7 @@
 			<alias>safe</alias>
 			<default>false</default>
 			<required>No</required>
-			<description>If set to true, escape raw HTML tags</description>
+			<description>If set to true, escape raw HTML tags and drop unsafe link and image URLs (for example javascript:)</description>
 		</argument>
 		<argument>
 			<name>encoding</name>
