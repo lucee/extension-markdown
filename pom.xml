@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.lucee</groupId>
     <artifactId>markdown-extension</artifactId>
-    <version>1.0.0.2</version>
+    <version>1.0.0.3-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Markdown Extension</name>
 
@@ -109,6 +109,32 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <configuration>
+                    <flattenMode>bom</flattenMode>
+                    <!-- flattened pom is uploaded to S3 next to the .lex files (packaging pom is skipped by default) -->
+                    <updatePomFile>true</updatePomFile>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>flatten</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>flatten.clean</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-antrun-plugin</artifactId>
                 <version>1.8</version>
@@ -140,6 +166,15 @@
                                     <property name="maven.password" value="${env.MAVEN_PASSWORD}"/>
                                     <property name="gpg.passphrase" value="${env.GPG_PASSPHRASE}"/>
                                 </ant>
+                                <condition property="isSnapshot" value="true" else="false">
+                                    <matches string="${project.version}" pattern=".*-SNAPSHOT"/>
+                                </condition>
+                                <condition property="deploy.url" value="${snapshot.url}">
+                                    <istrue value="${isSnapshot}"/>
+                                </condition>
+                                <condition property="deploy.url" value="${release.url}">
+                                    <isfalse value="${isSnapshot}"/>
+                                </condition>
                             </target>
                             <exportAntProperties>true</exportAntProperties>
                         </configuration>
